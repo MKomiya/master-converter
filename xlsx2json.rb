@@ -35,4 +35,4 @@ s.sheets.each do |sheet|
 end
 
 puts hash.to_json
-File.write('master/item.json', hash.to_json)
+File.write('master/master.json', hash.to_json)
