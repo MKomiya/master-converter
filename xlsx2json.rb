@@ -3,6 +3,7 @@ require 'json'
 
 begin
     s = Roo::Excelx.new($*[0])
+    filename = File.basename($*[0], '.xlsx')
 rescue
     STDERR.puts "Usage: ruby xlsx2json.rb excelx_file"
     exit false
@@ -34,5 +35,6 @@ s.sheets.each do |sheet|
     end
 end
 
+puts filename
 puts hash.to_json
-File.write('master/master.json', hash.to_json)
+File.write("master/#{filename}.json", hash.to_json)
