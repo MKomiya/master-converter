@@ -1,2 +1,9 @@
-.bundle/
-vendor/
+.bundle
+vendor
+*.gem
+.config
+Gemfile.lock
+pkg
+test/tmp
+test/version_tmp
+tmp
