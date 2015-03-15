@@ -2,8 +2,8 @@ require 'roo'
 require 'json'
 
 begin
-  s = Roo::Excelx.new($ARGV[0])
-  filename = File.basename($ARGV[0], '.xlsx')
+  s = Roo::Excelx.new($*[0])
+  filename = File.basename($*[0], '.xlsx')
 rescue
   STDERR.puts 'Usage: ruby xlsx2json.rb excelx_file'
   exit false
