@@ -1,5 +1,5 @@
 require './xlsx2json'
-task :convert do
+task :default do
   dirs = Dir.glob('./sheets/*')
   dirs.each do |f|
     c = Xlsx2Json.new
