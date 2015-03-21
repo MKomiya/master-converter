@@ -3,8 +3,8 @@ require 'json'
 
 class Xlsx2Json
   def create(filepath)
-    @s = filepath
-    @filename = File.basename(@s, '.xlsx')
+    @s = Roo::Excelx.new(filepath)
+    @filename = File.basename(filepath, '.xlsx')
 
     @headers = {}
     @hash = {}
@@ -15,7 +15,7 @@ class Xlsx2Json
       @s.default_sheet = sheet
       @headers[sheet] = {}
       (@s.first_column..@s.last_column).each do |col|
-        @headers[sheet][col] = @s.cell(s.first_row, col)
+        @headers[sheet][col] = @s.cell(@s.first_row, col)
       end
     end
   end
@@ -44,6 +44,6 @@ class Xlsx2Json
 
     puts @filename
     puts @hash.to_json
-    File.write("master/#{filename}.json", @hash.to_json)
+    File.write("master/#{@filename}.json", @hash.to_json)
   end
 end
